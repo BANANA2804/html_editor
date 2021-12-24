@@ -1,0 +1,114 @@
+body{
+	background: #272822;
+}
+
+/* Базовый контейнер табов */
+.tabs {
+        min-width: 320px;
+        max-width: 800px;
+        padding: 0px;
+        margin: 0 auto;
+}
+/* Стили секций с содержанием */
+.tabs>section {
+        display: none;
+        padding: 15px;
+}
+.tabs>section {
+        margin: 0 0 5px;
+        line-height: 1.5;
+        color: #fff
+ /* прикрутим анимацию */
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+}
+/* Описываем анимацию свойства opacity */
+ 
+@-webkit-keyframes fadeIn {
+        from {
+                opacity: 0;
+        }
+        to {
+                opacity: 1;
+        }
+}
+@keyframes fadeIn {
+        from {
+                opacity: 0;
+        }
+        to {
+                opacity: 1;
+        }
+}
+/* Прячем чекбоксы */
+.tabs>input {
+        display: none;
+        position: absolute;
+}
+/* Стили переключателей вкладок (табов) */
+.tabs>label {
+        display: inline-block;
+        margin: 0 0 -1px;
+        padding: 15px 25px;
+        font-weight: 600;
+        text-align: center;
+        color: #aaa;
+ border: 0px solid #ddd;
+ border-width: 1px 1px 1px 1px;
+        background: #202020;
+ border-radius: 10px 10px 0 0;
+}
+/* Шрифт-иконки от Font Awesome в формате Unicode */
+.tabs>label:before {
+        font-family: fontawesome;
+        font-weight: normal;
+        margin-right: 10px;
+}
+
+/* Изменения стиля переключателей вкладок при наведении */
+ 
+.tabs>label:hover {
+        color: #888;
+ cursor: pointer;
+}
+/* Стили для активной вкладки */
+.tabs>input:checked+label {
+        color: #555;
+ border-top: 3px solid #1FFFF8;
+ border-bottom: 1px solid #fff;
+ background: #272822;
+}
+/* Активация секций с помощью псевдокласса :checked */
+#tab1:checked~#content-tab1, #tab2:checked~#content-tab2, #tab3:checked~#content-tab3, #tab4:checked~#content-tab4 {
+ display: block;
+}
+/* Убираем текст с переключателей 
+* и оставляем иконки на малых экранах
+*/
+ 
+@media screen and (max-width: 680px) {
+        .tabs>label {
+                font-size: 0;
+        }
+        .tabs>label:before {
+                margin: 0;
+                font-size: 18px;
+        }
+}
+/* Изменяем внутренние отступы 
+*  переключателей для малых экранов
+*/
+@media screen and (max-width: 400px) {
+        .tabs>label {
+                padding: 15px;
+        }
+}
+
+section {
+	height: 100vh; /* высота секции равна высоте области просмотра */
+}
+	
